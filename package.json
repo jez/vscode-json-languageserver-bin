@@ -13,11 +13,11 @@
     "typescript": "^2.4.2"
   },
   "bin": {
-    "json-languageserver": "jsonServerMain.js"
+    "json-languageserver": "dist/jsonServerMain.js"
   },
   "scripts": {
     "mergePackages": "node ./mergePackages.js",
-    "addShebang": "sed -i '1i#!/usr/bin/env node' dist/jsonServerMain.js",
+    "addShebang": "sed -i '' -e '1i\\\n#!/usr/bin/env node' dist/jsonServerMain.js",
     "build": "cd vscode-json-languageserver && npm install && tsc -p . --outDir ../dist && cd .. && npm run addShebang",
     "publish": "npm run build && npm run mergePackages && npm publish dist",
     "pack": "npm run build && npm run mergePackages && npm pack dist",
